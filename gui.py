@@ -6,6 +6,7 @@ from datetime import datetime
 from functools import partial
 
 from reminders import Reminders
+from utils import minutes_to_milliseconds
 
 
 def check_action_due(reminder):
@@ -23,7 +24,7 @@ def check_action_due(reminder):
     else:
         lbl_last_move['foreground']='white'
 
-    window.after(1000 * 60, check_action_due, reminder)
+    window.after(minutes_to_milliseconds(1), check_action_due, reminder)
 
 
 def drink(reminder):
