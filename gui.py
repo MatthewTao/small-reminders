@@ -12,10 +12,16 @@ def check_action_due(reminder):
     action_info = reminder.check_action_due()
     lbl_last_drink['text'] = 'Last drink was ' + action_info['time_since_drink'] + ' hours ago'
     lbl_last_move['text'] = 'Last move was ' + action_info['time_since_move'] + ' hours ago '
+    
     if action_info['drink_due']:
         lbl_last_drink['foreground']='red'
+    else:
+        lbl_last_drink['foreground']='white'
+    
     if action_info['move_due']:
         lbl_last_move['foreground']='red'
+    else:
+        lbl_last_move['foreground']='white'
 
     window.after(1000 * 60, check_action_due, reminder)
 
