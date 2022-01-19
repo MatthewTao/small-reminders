@@ -1,0 +1,10 @@
+[THRESHOLD]
+# How long in hours before prompting to drink
+drink = 2
+
+# How long in hours before prompting to move about
+move = 1.5
+
+[ACTIONS]
+# Lockscreen when move is clicked: true false
+lock = true

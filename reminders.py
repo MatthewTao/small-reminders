@@ -3,7 +3,9 @@ Contains class to set reminders
 """
 import time
 
-from utils import read_config, hours_to_seconds, seconds_to_hours
+from utils import (
+    read_config, hours_to_seconds, seconds_to_hours,
+    lock_screen, str_to_bool)
 
 
 class Reminders:
@@ -20,11 +22,15 @@ class Reminders:
         self.move_threshold = hours_to_seconds(
             float(self.config['THRESHOLD']['move']))
 
+        self.lock = str_to_bool(self.config['ACTIONS']['lock'])
+
     def take_drink(self):
         self.last_drink = time.time()
 
     def move_about(self):
         self.last_moved = time.time()
+        if self.lock is True:
+            lock_screen()
 
     def _drink_due(self, time_since):
         return time_since > self.drink_threshold
@@ -57,5 +63,3 @@ class Reminders:
             "time_since_move": since_move_str,
             "move_due": self._move_due(time_since_move)
         }
-
-
