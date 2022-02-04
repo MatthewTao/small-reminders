@@ -42,18 +42,20 @@ class Reminders:
         time_since_drink = time.time() - self.last_drink
         since_drink_str = str(
             round(
-                seconds_to_hours(
+                number=seconds_to_hours(
                     time_since_drink
-                )
+                ),
+                ndigits=1
             )
         ).rjust(4, ' ')
 
         time_since_move = time.time() - self.last_moved
         since_move_str = str(
             round(
-                seconds_to_hours(
+                number=seconds_to_hours(
                     time_since_move
-                )
+                ),
+                ndigits=1
             )
         ).rjust(4, ' ')
 
