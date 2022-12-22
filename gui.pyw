@@ -6,7 +6,7 @@ from datetime import datetime
 from functools import partial
 
 from reminders import Reminders
-from utils import minutes_to_milliseconds
+from utils import minutes_to_milliseconds, read_config, str_to_bool
 
 
 def check_action_due(reminder):
@@ -36,13 +36,14 @@ def move(reminder):
     reminder.move_about()
     window.after(1, check_action_due, reminder)
 
-
-reminder_instance = Reminders()
+config = read_config()
+reminder_instance = Reminders(config)
 
 # Set-up the window
 window = tk.Tk()
 window.title("Small Reminders")
 window["bg"] = "black"
+window.attributes('-topmost', str_to_bool(config['WINDOW']['top']))
 
 # Establish frames
 frm_datetime = tk.Frame(master=window)

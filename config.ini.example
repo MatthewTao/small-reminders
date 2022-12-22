@@ -8,3 +8,7 @@ move = 1.5
 [ACTIONS]
 # Lockscreen when move is clicked: true false
 lock = true
+
+[WINDOW]
+# Should the window be always on top
+top = false

@@ -4,19 +4,19 @@ Contains class to set reminders
 import time
 
 from utils import (
-    read_config, hours_to_seconds, seconds_to_hours,
+    hours_to_seconds, seconds_to_hours,
     lock_screen, str_to_bool)
 
 
 class Reminders:
-    def __init__(self):
+    def __init__(self, config):
         """
         Init Reminders
         """
         self.last_drink = time.time()
         self.last_moved = time.time()
 
-        self.config = read_config()
+        self.config = config
         self.drink_threshold = hours_to_seconds(
             float(self.config['THRESHOLD']['drink']))
         self.move_threshold = hours_to_seconds(
