@@ -75,7 +75,7 @@ lbl_last_drink.pack()
 frm_datetime.grid(row=0, column=0, columnspan=2)
 bt_drink.grid(row=1, column=0, sticky='NESW')
 bt_move.grid(row=1, column=1, sticky='NESW')
-
+window.resizable(False, False)
 
 # Run the application
 window.after(1, check_action_due, reminder_instance)
