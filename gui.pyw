@@ -44,6 +44,7 @@ window = tk.Tk()
 window.title("Small Reminders")
 window["bg"] = "black"
 window.attributes('-topmost', str_to_bool(config['WINDOW']['top']))
+window.geometry('+0-40')
 
 # Establish frames
 frm_datetime = tk.Frame(master=window)
