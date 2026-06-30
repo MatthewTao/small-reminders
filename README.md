@@ -19,4 +19,4 @@ Below are the steps to start using the small reminders.
 The gui at the moment just tracks when you have done the actions last,
 and provides a quick way to track them.
 But it still doesn't actually remind you to do them.
-Perhaps a small message should pop up or there could be a audio cue.
+Toast notification should pop up.
